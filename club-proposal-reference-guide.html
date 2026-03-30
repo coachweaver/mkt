@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Proposal & Branding Assignment - Reference Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Montserrat:wght@400;600;700&family=Source+Sans+Pro:ital,wght@0,400;1,400&family=Source+Serif+Pro:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gmc-navy: #00205B;
+            --gmc-white: #FFFFFF;
+            --gmc-light-blue: #8DC8E8;
+            --trophy-gold: #D4AF37;
+            --champagne-gold: #E6C252;
+            --lane-silver: #C1C6C8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--gmc-navy);
+            background: var(--gmc-white);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--gmc-navy);
+            color: var(--gmc-white);
+            padding: 2.5rem 2rem;
+            border-bottom: 6px solid var(--gmc-light-blue);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 32, 91, 0.15);
+        }
+
+        .header h1 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .nav-menu {
+            background: var(--gmc-light-blue);
+            padding: 1rem 2rem;
+            border-bottom: 2px solid var(--lane-silver);
+            position: sticky;
+            top: 125px;
+            z-index: 99;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .nav-menu a {
+            color: var(--gmc-navy);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--trophy-gold);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 180px;
+        }
+
+        .section-header {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--gmc-navy);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 4px solid var(--gmc-light-blue);
+        }
+
+        .subsection {
+            margin: 2rem 0;
+        }
+
+        .subsection h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--gmc-navy);
+            margin-bottom: 1rem;
+        }
+
+        .subsection h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--gmc-navy);
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        p, li {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-box {
+            background: #f8f9fb;
+            border-left: 6px solid var(--gmc-light-blue);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .info-box.warning {
+            border-left-color: var(--trophy-gold);
+            background: #fffbf0;
+        }
+
+        .info-box.success {
+            border-left-color: var(--gmc-light-blue);
+            background: #f0f9ff;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .color-card {
+            border: 2px solid var(--lane-silver);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .color-swatch {
+            height: 120px;
+            width: 100%;
+        }
+
+        .color-info {
+            padding: 1rem;
+            background: var(--gmc-white);
+        }
+
+        .color-name {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .color-usage {
+            font-size: 0.85rem;
+            color: #555;
+            font-style: italic;
+        }
+
+        .font-demo {
+            border: 2px solid var(--lane-silver);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            background: var(--gmc-white);
+        }
+
+        .font-demo h5 {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .font-demo .sample {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .checklist {
+            background: var(--gmc-white);
+            border: 2px solid var(--gmc-navy);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .checklist h4 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--gmc-navy);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .checklist ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li {
+            padding-left: 1.8rem;
+            position: relative;
+            margin-bottom: 0.75rem;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--gmc-light-blue);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .timeline {
+            background: #f8f9fb;
+            border-left: 4px solid var(--gmc-navy);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .timeline h4 {
+            color: var(--gmc-navy);
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 0.75rem;
+        }
+
+        .do-dont {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .do-panel, .dont-panel {
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .do-panel {
+            background: #f0f9ff;
+            border: 2px solid var(--gmc-light-blue);
+        }
+
+        .dont-panel {
+            background: #fff5f5;
+            border: 2px solid #ff6b6b;
+        }
+
+        .do-panel h4 {
+            color: var(--gmc-navy);
+            margin-bottom: 1rem;
+        }
+
+        .dont-panel h4 {
+            color: #c92a2a;
+            margin-bottom: 1rem;
+        }
+
+        .example-box {
+            background: var(--gmc-white);
+            border: 2px solid var(--gmc-light-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-label {
+            font-weight: 700;
+            color: var(--gmc-navy);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-menu ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .do-dont {
+                grid-template-columns: 1fr;
+            }
+
+            .color-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .footer {
+            background: var(--gmc-navy);
+            color: var(--gmc-white);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Club Proposal & Branding Assignment</h1>
+        <p>Reference Guide for Business Marketing Students</p>
+    </div>
+
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#color-theory">Color Theory</a></li>
+            <li><a href="#typography">Typography</a></li>
+            <li><a href="#flyer-design">Flyer Design</a></li>
+            <li><a href="#proposal">Proposal Guidelines</a></li>
+            <li><a href="#checklist">Grading Checklist</a></li>
+            <li><a href="#submission">Submission</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- OVERVIEW SECTION -->
+        <section id="overview" class="section">
+            <h2 class="section-header">Assignment Overview</h2>
+            
+            <div class="info-box">
+                <p><strong>Your Mission:</strong> Create a complete brand identity and proposal for a new school club. You'll develop a professional proposal, design a cohesive brand kit, and create a compelling promotional flyer.</p>
+            </div>
+
+            <div class="timeline">
+                <h4>Day 1 (75 minutes)</h4>
+                <ul>
+                    <li>Brainstorm your club concept (10-15 min)</li>
+                    <li>Draft your proposal document (25-30 min)</li>
+                    <li>Brainstorm brand identity (10 min)</li>
+                    <li>Build brand kit in Canva using Brand Kit tool (20-25 min)</li>
+                </ul>
+            </div>
+
+            <div class="timeline">
+                <h4>Day 2 (75 minutes)</h4>
+                <ul>
+                    <li>Design your interest meeting flyer (60 min)</li>
+                    <li>Export all three deliverables as PDFs (10 min)</li>
+                    <li>Submit to Google Classroom (5 min)</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>Your Three Deliverables</h3>
+                <ol>
+                    <li><strong>Brand Kit PDF</strong> - Your color palette and font choices (not graded, for reference only)</li>
+                    <li><strong>Proposal PDF</strong> - One-page black & white document in MLA format (graded)</li>
+                    <li><strong>Flyer PDF</strong> - Portrait orientation promotional material (graded)</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- COLOR THEORY SECTION -->
+        <section id="color-theory" class="section">
+            <h2 class="section-header">Color Theory Basics</h2>
+            
+            <div class="subsection">
+                <h3>Understanding Color Psychology</h3>
+                <p>Colors evoke emotions and communicate messages before words do. When building your brand, think strategically about what feelings you want your club to convey.</p>
+
+                <div class="color-grid">
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #FF6B6B;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Red</div>
+                            <div class="color-usage">Energy, passion, urgency, excitement</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #4ECDC4;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Teal/Cyan</div>
+                            <div class="color-usage">Calm, trust, innovation, clarity</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #FFD93D;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Yellow</div>
+                            <div class="color-usage">Optimism, creativity, warmth, attention</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #95E1D3;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Green</div>
+                            <div class="color-usage">Growth, nature, balance, health</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #6C5CE7;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Purple</div>
+                            <div class="color-usage">Creativity, luxury, imagination, wisdom</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #FF8B94;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Pink</div>
+                            <div class="color-usage">Compassion, playfulness, youth, care</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Building Your Color Palette</h3>
+                <p>Your brand kit should include:</p>
+                <ul>
+                    <li><strong>2-3 Primary Colors</strong> - Your main brand colors that appear most frequently</li>
+                    <li><strong>2-3 Accent Colors</strong> - Supporting colors used sparingly for emphasis and visual interest</li>
+                </ul>
+
+                <div class="info-box warning">
+                    <p><strong>Critical Rule:</strong> Always ensure high contrast between text and background. Dark text on light backgrounds or light text on dark backgrounds. Never put light text on light backgrounds or dark text on dark backgrounds.</p>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Color Harmony Strategies</h3>
+                
+                <h4>Complementary Colors</h4>
+                <p>Colors opposite each other on the color wheel (e.g., blue and orange, purple and yellow). Creates high contrast and visual energy.</p>
+                <div class="example-box">
+                    <div class="example-label">Example</div>
+                    <p>Navy Blue + Burnt Orange = Professional yet energetic</p>
+                </div>
+
+                <h4>Analogous Colors</h4>
+                <p>Colors next to each other on the color wheel (e.g., blue, blue-green, green). Creates harmony and cohesion.</p>
+                <div class="example-box">
+                    <div class="example-label">Example</div>
+                    <p>Teal + Ocean Blue + Navy = Calming, unified feel</p>
+                </div>
+
+                <h4>Monochromatic</h4>
+                <p>Different shades and tints of the same color. Creates sophistication and elegance.</p>
+                <div class="example-box">
+                    <div class="example-label">Example</div>
+                    <p>Light Pink + Rose + Deep Maroon = Refined, cohesive</p>
+                </div>
+
+                <h4>Triadic Colors</h4>
+                <p>Three colors evenly spaced on the color wheel (e.g., red, yellow, blue). Creates vibrant, balanced designs.</p>
+                <div class="example-box">
+                    <div class="example-label">Example</div>
+                    <p>Purple + Orange + Green = Bold, playful, balanced</p>
+                </div>
+            </div>
+
+            <div class="do-dont">
+                <div class="do-panel">
+                    <h4>✓ DO</h4>
+                    <ul>
+                        <li>Choose colors that reflect your club's purpose</li>
+                        <li>Test your colors together before finalizing</li>
+                        <li>Use primary colors most and accents sparingly</li>
+                        <li>Ensure readability on all backgrounds</li>
+                        <li>Consider how colors look printed in black & white</li>
+                    </ul>
+                </div>
+                <div class="dont-panel">
+                    <h4>✗ DON'T</h4>
+                    <ul>
+                        <li>Use more than 6 total colors</li>
+                        <li>Pick colors randomly without strategy</li>
+                        <li>Use neon colors as primary brand colors</li>
+                        <li>Forget about colorblind accessibility</li>
+                        <li>Make every color equally prominent</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- TYPOGRAPHY SECTION -->
+        <section id="typography" class="section">
+            <h2 class="section-header">Typography & Font Selection</h2>
+            
+            <div class="subsection">
+                <h3>The Four Font Categories</h3>
+                
+                <div class="font-demo">
+                    <h5>Serif Fonts</h5>
+                    <div class="sample" style="font-family: 'Georgia', serif;">The quick brown fox jumps</div>
+                    <p><strong>Characteristics:</strong> Small decorative strokes (serifs) at the ends of letters</p>
+                    <p><strong>Feel:</strong> Traditional, trustworthy, elegant, established, formal</p>
+                    <p><strong>Best For:</strong> Body text in print, luxury brands, academic contexts, traditional organizations</p>
+                </div>
+
+                <div class="font-demo">
+                    <h5>Sans-Serif Fonts</h5>
+                    <div class="sample" style="font-family: 'Arial', sans-serif;">The quick brown fox jumps</div>
+                    <p><strong>Characteristics:</strong> Clean lines with no decorative strokes</p>
+                    <p><strong>Feel:</strong> Modern, clean, straightforward, accessible, friendly</p>
+                    <p><strong>Best For:</strong> Digital screens, minimalist brands, modern organizations, body text</p>
+                </div>
+
+                <div class="font-demo">
+                    <h5>Display/Decorative Fonts</h5>
+                    <div class="sample" style="font-family: 'Impact', fantasy; letter-spacing: 2px;">THE QUICK BROWN</div>
+                    <p><strong>Characteristics:</strong> Unique, stylized, eye-catching designs</p>
+                    <p><strong>Feel:</strong> Bold, creative, distinctive, attention-grabbing</p>
+                    <p><strong>Best For:</strong> Titles, logos, headlines only (never body text!)</p>
+                </div>
+
+                <div class="font-demo">
+                    <h5>Script/Handwritten Fonts</h5>
+                    <div class="sample" style="font-family: 'Brush Script MT', cursive;">The quick brown fox</div>
+                    <p><strong>Characteristics:</strong> Mimics handwriting or calligraphy</p>
+                    <p><strong>Feel:</strong> Personal, elegant, creative, informal</p>
+                    <p><strong>Best For:</strong> Accents, special emphasis, artistic clubs (use sparingly!)</p>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Your Brand Kit Font Requirements</h3>
+                <ul>
+                    <li><strong>1 Heading/Title Font</strong> - Used for your club name and major headings. Should be bold and attention-grabbing.</li>
+                    <li><strong>1 Body Font</strong> - Used for paragraphs and regular text. Must be highly readable.</li>
+                    <li><strong>1 Fun/Alternative Font</strong> - Used for special accents or creative elements. Adds personality.</li>
+                </ul>
+
+                <div class="info-box">
+                    <p><strong>Pro Tip:</strong> Great branding uses contrast. If your heading font is bold and geometric, choose a softer body font. If your heading is elegant and serif, pick a clean sans-serif for body text.</p>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Proven Font Combinations</h3>
+                
+                <div class="example-box">
+                    <div class="example-label">Modern & Professional</div>
+                    <p><strong>Heading:</strong> Montserrat Bold (sans-serif)</p>
+                    <p><strong>Body:</strong> Open Sans (sans-serif)</p>
+                    <p><strong>Accent:</strong> Permanent Marker (display)</p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">Classic & Trustworthy</div>
+                    <p><strong>Heading:</strong> Playfair Display (serif)</p>
+                    <p><strong>Body:</strong> Lato (sans-serif)</p>
+                    <p><strong>Accent:</strong> Great Vibes (script)</p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">Bold & Energetic</div>
+                    <p><strong>Heading:</strong> Bebas Neue (display sans-serif)</p>
+                    <p><strong>Body:</strong> Roboto (sans-serif)</p>
+                    <p><strong>Accent:</strong> Anton (display)</p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">Creative & Artistic</div>
+                    <p><strong>Heading:</strong> Josefin Sans (geometric sans-serif)</p>
+                    <p><strong>Body:</strong> Merriweather (serif)</p>
+                    <p><strong>Accent:</strong> Pacifico (script)</p>
+                </div>
+            </div>
+
+            <div class="do-dont">
+                <div class="do-panel">
+                    <h4>✓ DO</h4>
+                    <ul>
+                        <li>Pair fonts with contrasting styles</li>
+                        <li>Use your body font for 80% of text</li>
+                        <li>Make headings significantly larger than body</li>
+                        <li>Stick to your 3 chosen fonts consistently</li>
+                        <li>Test readability at different sizes</li>
+                    </ul>
+                </div>
+                <div class="dont-panel">
+                    <h4>✗ DON'T</h4>
+                    <ul>
+                        <li>Use more than 3 fonts in your design</li>
+                        <li>Pair two decorative fonts together</li>
+                        <li>Use script fonts for body paragraphs</li>
+                        <li>Make text too small to read easily</li>
+                        <li>Use Comic Sans (ever, seriously)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLYER DESIGN SECTION -->
+        <section id="flyer-design" class="section">
+            <h2 class="section-header">Flyer Design Principles</h2>
+            
+            <div class="subsection">
+                <h3>Required Flyer Elements</h3>
+                <p>Your flyer MUST include all of these components:</p>
+                
+                <div class="checklist">
+                    <ul>
+                        <li><strong>Brand Fonts</strong> - Use your heading, body, and alternative fonts from your brand kit</li>
+                        <li><strong>Brand Colors</strong> - Incorporate your primary and accent colors</li>
+                        <li><strong>Title</strong> - Your club name, large and prominent</li>
+                        <li><strong>Purpose Statement</strong> - The value proposition (what members get/do)</li>
+                        <li><strong>Meeting Details</strong> - Date, time, and location clearly stated</li>
+                        <li><strong>Call to Action</strong> - Tell readers what to do next (e.g., "Join us!" "Scan QR code!" "Follow @clubname")</li>
+                        <li><strong>Creative Eye-Catching Element</strong> - Something unique that makes YOUR flyer stand out from all others</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Advertising Principles</h3>
+                
+                <h4>1. Visual Hierarchy</h4>
+                <p>Guide the viewer's eye through your design in order of importance:</p>
+                <ul>
+                    <li><strong>Primary:</strong> Club name and eye-catching visual (largest, most prominent)</li>
+                    <li><strong>Secondary:</strong> Purpose statement and meeting date/time (medium size)</li>
+                    <li><strong>Tertiary:</strong> Additional details and call to action (smallest, but still readable)</li>
+                </ul>
+
+                <h4>2. The "3-Second Rule"</h4>
+                <p>A person should understand what your club is about within 3 seconds of seeing your flyer. Use large, clear headings and minimal text. If you need more than 15 words to explain your club, it's too complicated.</p>
+
+                <h4>3. White Space is Your Friend</h4>
+                <p>Don't fill every inch of the page. Empty space (margins, breathing room around elements) makes your design look professional and makes important information stand out. Cramped designs look amateur and are hard to read.</p>
+
+                <h4>4. Contrast Creates Impact</h4>
+                <p>High contrast between elements (large vs. small, dark vs. light, bold vs. thin) creates visual interest and draws attention. Avoid using similar-sized text throughout.</p>
+
+                <h4>5. Call to Action (CTA)</h4>
+                <p>Tell people exactly what you want them to do. Examples:</p>
+                <ul>
+                    <li>"Scan to sign up!"</li>
+                    <li>"See you there!"</li>
+                    <li>"Join us Monday!"</li>
+                    <li>"Follow @clubinstagram for updates"</li>
+                    <li>"Text 'CHESS' to 12345"</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>Creative Eye-Catching Elements</h3>
+                <p>Your flyer must include something unique that differentiates it. Consider these strategies:</p>
+                
+                <ul>
+                    <li><strong>Unexpected Layout:</strong> Diagonal text, circular arrangements, asymmetrical design</li>
+                    <li><strong>Bold Graphic Element:</strong> Large icon, illustration, or photo that dominates the design</li>
+                    <li><strong>Interactive Element:</strong> QR code, tear-off tabs, scratch-off section, perforated RSVP</li>
+                    <li><strong>Typography as Art:</strong> Creative letterforms, overlapping text, outlined letters</li>
+                    <li><strong>Texture or Pattern:</strong> Unique background pattern that supports your club's theme</li>
+                    <li><strong>Color Block Design:</strong> Bold geometric color sections that organize information</li>
+                    <li><strong>Minimalist Approach:</strong> Ultra-simple design that stands out by being different from busy flyers</li>
+                    <li><strong>Humor or Wordplay:</strong> Clever headline or visual pun related to your club</li>
+                </ul>
+
+                <div class="info-box warning">
+                    <p><strong>Important:</strong> Your creative element should enhance your message, not distract from it. Form follows function—every design choice should serve your communication goal.</p>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Common Flyer Design Mistakes</h3>
+                
+                <div class="do-dont">
+                    <div class="do-panel">
+                        <h4>✓ DO</h4>
+                        <ul>
+                            <li>Make the club name HUGE and readable from 10 feet away</li>
+                            <li>Use high-quality images (no pixelation)</li>
+                            <li>Align elements to create clean edges</li>
+                            <li>Leave generous margins (at least 0.5" on all sides)</li>
+                            <li>Test print in black & white to check contrast</li>
+                            <li>Proofread everything multiple times</li>
+                        </ul>
+                    </div>
+                    <div class="dont-panel">
+                        <h4>✗ DON'T</h4>
+                        <ul>
+                            <li>Use more than 3 fonts</li>
+                            <li>Write long paragraphs (use bullet points)</li>
+                            <li>Center-align everything (boring!)</li>
+                            <li>Use clipart or cheesy stock photos</li>
+                            <li>Make text smaller than 10pt</li>
+                            <li>Ignore your brand colors and fonts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROPOSAL GUIDELINES SECTION -->
+        <section id="proposal" class="section">
+            <h2 class="section-header">Proposal Guidelines</h2>
+            
+            <div class="info-box warning">
+                <p><strong>Critical Requirements:</strong></p>
+                <ul>
+                    <li>Maximum 1 page</li>
+                    <li>Black and white only (no colors or images)</li>
+                    <li>MLA format required</li>
+                    <li>Audience: School administrators (Mr. Dillard)</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>MLA Formatting Requirements</h3>
+                <p>Your proposal must follow MLA format precisely:</p>
+                
+                <div class="example-box">
+                    <div class="example-label">Header (top left corner)</div>
+                    <p>Your Name<br>
+                    Mr. Dillard<br>
+                    3A Marketing<br>
+                    30 March 2026</p>
+                </div>
+
+                <ul>
+                    <li><strong>Font:</strong> Times New Roman, 12pt</li>
+                    <li><strong>Spacing:</strong> Double-spaced throughout</li>
+                    <li><strong>Margins:</strong> 1 inch on all sides</li>
+                    <li><strong>Title:</strong> Centered, same font and size as body text (not bold or underlined)</li>
+                    <li><strong>Page Number:</strong> Top right corner with your last name (e.g., "Smith 1")</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>Required Sections</h3>
+                
+                <h4>1. Purpose Statement</h4>
+                <p>A clear, concise statement (2-4 sentences) explaining what your club does and why it should exist. Answer:</p>
+                <ul>
+                    <li>What is the club's main focus or activity?</li>
+                    <li>What need or interest does it serve?</li>
+                    <li>What value does it provide to members?</li>
+                </ul>
+                
+                <div class="example-box">
+                    <div class="example-label">Example Purpose Statement</div>
+                    <p>The Creative Writing Club provides students with a supportive community to develop their writing skills across multiple genres. Members will workshop their creative pieces, participate in writing challenges, and prepare submissions for literary competitions. This club addresses the need for creative outlets and helps students build portfolios for college applications.</p>
+                </div>
+
+                <h4>2. Meeting Schedule & Target Audience</h4>
+                <p>Combine these into one section. Include:</p>
+                <ul>
+                    <li><strong>Meeting Frequency:</strong> How often will the club meet? (weekly, bi-weekly, monthly)</li>
+                    <li><strong>Meeting Duration:</strong> How long are meetings? (30 min, 1 hour, etc.)</li>
+                    <li><strong>Proposed Day/Time:</strong> When would meetings ideally occur?</li>
+                    <li><strong>Target Audience:</strong> Who is this club for? (all grades, specific grade levels, skill levels, interests)</li>
+                </ul>
+
+                <div class="example-box">
+                    <div class="example-label">Example</div>
+                    <p>The Creative Writing Club will meet every Tuesday during lunch (30 minutes) in Room 204. Meetings are open to students in grades 9-12 of all skill levels, from beginners exploring writing for the first time to advanced writers preparing for college creative writing programs.</p>
+                </div>
+
+                <h4>3. Required Resources & Leadership Structure</h4>
+                <p>Combine these into one section. Include:</p>
+                <ul>
+                    <li><strong>Space Needs:</strong> What type of room or space do you need?</li>
+                    <li><strong>Equipment/Supplies:</strong> List specific items needed (be realistic and specific)</li>
+                    <li><strong>Budget:</strong> Approximate costs if applicable</li>
+                    <li><strong>Leadership Roles:</strong> What positions will the club have? (President, VP, Secretary, etc.)</li>
+                    <li><strong>Faculty Advisor:</strong> Have you identified a potential advisor? (or state you're seeking one)</li>
+                </ul>
+
+                <div class="example-box">
+                    <div class="example-label">Example</div>
+                    <p>The club requires a classroom with moveable seating to facilitate small group workshops. Initial supplies include printer paper for manuscript copies and basic writing prompts (estimated $30/semester). Leadership will consist of a President, Vice President, and Workshop Coordinator elected by members. Ms. Johnson has expressed interest in serving as faculty advisor.</p>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Writing for Administrators</h3>
+                <p>Your proposal should be:</p>
+                <ul>
+                    <li><strong>Professional:</strong> Use formal language and avoid slang</li>
+                    <li><strong>Specific:</strong> Provide concrete details, not vague statements</li>
+                    <li><strong>Realistic:</strong> Show you've thought through logistics</li>
+                    <li><strong>Concise:</strong> Every sentence should add value</li>
+                    <li><strong>Action-Oriented:</strong> Focus on what the club will DO, not just what it is</li>
+                </ul>
+
+                <div class="info-box">
+                    <p><strong>Remember:</strong> Administrators are evaluating whether your club is feasible, valuable to students, and worth allocating school resources. Make it easy for them to say yes by addressing practical concerns upfront.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GRADING CHECKLIST SECTION -->
+        <section id="checklist" class="section">
+            <h2 class="section-header">Meets Expectations Checklist</h2>
+            
+            <div class="info-box success">
+                <p><strong>Grading is Binary:</strong> Your work will be marked as either "Acceptable" or "Unacceptable" based on whether it meets ALL required criteria below. There are no partial points.</p>
+            </div>
+
+            <div class="checklist">
+                <h4>Proposal Requirements (Acceptable = All Items Checked)</h4>
+                <ul>
+                    <li>Maximum 1 page length</li>
+                    <li>Black and white only (no colors or images)</li>
+                    <li>Proper MLA format (header with name, recipient, class, date)</li>
+                    <li>Times New Roman, 12pt font</li>
+                    <li>Double-spaced throughout</li>
+                    <li>1-inch margins on all sides</li>
+                    <li>Page number with last name in top right corner</li>
+                    <li>Clear purpose statement (2-4 sentences)</li>
+                    <li>Meeting schedule and target audience section included</li>
+                    <li>Required resources and leadership structure section included</li>
+                    <li>Professional language and tone throughout</li>
+                    <li>No spelling or major grammatical errors</li>
+                    <li>Properly saved and named: [lastName firstName] Proposal.pdf</li>
+                </ul>
+            </div>
+
+            <div class="checklist">
+                <h4>Flyer Requirements (Acceptable = All Items Checked)</h4>
+                <ul>
+                    <li>Portrait orientation (8.5" x 11")</li>
+                    <li>Uses all three brand fonts from brand kit (heading, body, alternative)</li>
+                    <li>Uses brand colors from brand kit (primary and accent colors)</li>
+                    <li>Club title/name is prominent and readable</li>
+                    <li>Purpose statement/value proposition clearly stated</li>
+                    <li>Meeting date included</li>
+                    <li>Meeting time included</li>
+                    <li>Meeting location included</li>
+                    <li>Call to action present (tells reader what to do)</li>
+                    <li>Creative eye-catching element that makes it unique</li>
+                    <li>Good visual hierarchy (clear order of importance)</li>
+                    <li>Appropriate use of white space (not cramped)</li>
+                    <li>High contrast and readability</li>
+                    <li>Professional appearance with no pixelation or blurry elements</li>
+                    <li>No spelling or major design errors</li>
+                    <li>Properly saved and named: [lastName firstName] Flyer.pdf</li>
+                </ul>
+            </div>
+
+            <div class="info-box warning">
+                <p><strong>Common Reasons for "Unacceptable":</strong></p>
+                <ul>
+                    <li>Missing required elements (even one item)</li>
+                    <li>Incorrect file naming</li>
+                    <li>Wrong file format (not PDF)</li>
+                    <li>Proposal over 1 page or has colors/images</li>
+                    <li>Flyer missing meeting details</li>
+                    <li>Poor readability due to font size or color contrast</li>
+                    <li>No clear creative element that distinguishes the flyer</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SUBMISSION SECTION -->
+        <section id="submission" class="section">
+            <h2 class="section-header">Submission Instructions</h2>
+            
+            <div class="subsection">
+                <h3>File Naming Convention</h3>
+                <p>All files must follow this exact format:</p>
+                
+                <div class="example-box">
+                    <div class="example-label">Naming Format</div>
+                    <p><code>[lastName firstName] Document Name.pdf</code></p>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-label">Examples</div>
+                    <p><code>Smith John Brand Kit.pdf</code></p>
+                    <p><code>Smith John Proposal.pdf</code></p>
+                    <p><code>Smith John Flyer.pdf</code></p>
+                </div>
+
+                <div class="info-box warning">
+                    <p><strong>Warning:</strong> Incorrectly named files may be marked as unacceptable. Double-check your spelling and spacing!</p>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Export to PDF in Canva</h3>
+                <ol>
+                    <li>Click "Share" in the top right corner</li>
+                    <li>Select "Download"</li>
+                    <li>Choose "PDF Standard" from the file type dropdown</li>
+                    <li>Click "Download"</li>
+                    <li>Rename the file according to the naming convention above</li>
+                </ol>
+            </div>
+
+            <div class="subsection">
+                <h3>Google Classroom Submission</h3>
+                <ol>
+                    <li>Go to Google Classroom and find the assignment</li>
+                    <li>Click "Add or create" → "File"</li>
+                    <li>Upload all THREE PDF files:
+                        <ul>
+                            <li>[lastName firstName] Brand Kit.pdf</li>
+                            <li>[lastName firstName] Proposal.pdf</li>
+                            <li>[lastName firstName] Flyer.pdf</li>
+                        </ul>
+                    </li>
+                    <li>Verify all three files are attached</li>
+                    <li>Click "Turn in"</li>
+                    <li>Confirm submission</li>
+                </ol>
+
+                <div class="info-box success">
+                    <p><strong>Before You Submit:</strong> Open each PDF to verify it looks correct and is the right file. Once submitted, you cannot edit unless you "unsubmit" (which may count as late).</p>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Deadline & Late Policy</h3>
+                <p>All three files must be submitted by the end of Day 2 class period. Late submissions will follow the standard course late work policy as outlined in the syllabus.</p>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Greer Middle College Charter High School | Business Marketing | 3A</p>
+    </div>
+</body>
+</html>
