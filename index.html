@@ -3,513 +3,748 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Club Proposal & Branding Reference Guide</title>
+  <title>Club Proposal & Flyer Reference Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; color: #111; background: #fff; }
-    #app { display: flex; min-height: 100vh; }
-
-    .sidebar {
-      position: fixed;
-      top: 0; left: 0;
-      width: 210px;
-      height: 100vh;
-      background: #fff;
-      border-right: 1px solid #ddd;
-      padding: 28px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      z-index: 100;
+    :root {
+      --black: #111;
+      --white: #fff;
+      --gray-100: #f4f4f2;
+      --gray-200: #e8e8e4;
+      --gray-400: #9a9a94;
+      --gray-600: #555550;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --green: #16a34a;
+      --green-light: #f0fdf4;
+      --yellow: #ca8a04;
+      --yellow-light: #fefce8;
+      --nav-height: 60px;
     }
-    .sidebar-title {
-      font-size: 11px;
-      font-weight: bold;
-      color: #999;
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--gray-100);
+      color: var(--black);
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--black);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+    }
+    .nav-brand {
+      font-family: 'DM Serif Display', serif;
+      color: var(--white);
+      font-size: 17px;
+      margin-right: auto;
+      letter-spacing: 0.2px;
+    }
+    .nav-tabs { display: flex; height: 100%; list-style: none; }
+    .nav-tabs a {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 22px;
+      color: var(--gray-400);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      border-bottom: 3px solid transparent;
+      transition: color 0.15s;
+    }
+    .nav-tabs a:hover { color: var(--white); }
+    .nav-tabs a.active { color: var(--white); border-bottom-color: var(--white); }
+
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 40px 100px;
+      scroll-margin-top: var(--nav-height);
+    }
+    .section-divider { border: none; border-top: 3px solid var(--black); margin: 0; }
+
+    /* ── TYPOGRAPHY ── */
+    .page-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray-400);
       margin-bottom: 10px;
     }
-    .nav-btn {
-      display: block;
-      width: 100%;
-      text-align: left;
-      padding: 9px 12px;
-      border: none;
-      background: transparent;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-      color: #555;
-      font-family: Arial, sans-serif;
-      line-height: 1.4;
+    .page-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 46px;
+      line-height: 1.1;
+      margin-bottom: 40px;
     }
-    .nav-btn:hover { background: #f2f2f2; color: #111; }
-    .nav-btn.active { background: #f2f2f2; color: #111; font-weight: bold; }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      margin: 52px 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1.5px solid var(--gray-200);
+    }
+    h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 26px 0 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--gray-600);
+    }
+    p { margin-bottom: 14px; font-size: 15px; }
+    ul, ol { margin: 10px 0 14px 22px; }
+    li { margin-bottom: 6px; font-size: 15px; }
+    strong { font-weight: 600; }
 
-    .content {
-      margin-left: 210px;
-      padding: 48px 56px;
-      max-width: 900px;
-      width: 100%;
+    /* ── CARDS ── */
+    .card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: 10px;
+      padding: 22px 24px;
+      margin: 20px 0;
+    }
+    .card-title {
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--gray-600);
+      margin-bottom: 12px;
     }
 
-    .page { display: none; }
-    .page.active { display: block; }
-
-    h1 { font-size: 28px; font-weight: bold; margin-bottom: 28px; padding-bottom: 12px; border-bottom: 2px solid #111; }
-    h2 { font-size: 20px; font-weight: bold; margin: 36px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #ccc; }
-    h3 { font-size: 16px; font-weight: bold; margin: 24px 0 10px; }
-    h4 { font-size: 14px; font-weight: bold; margin: 16px 0 8px; }
-    p { font-size: 14px; line-height: 1.7; margin-bottom: 12px; }
-    ul, ol { padding-left: 22px; margin-bottom: 12px; }
-    li { font-size: 14px; line-height: 1.7; margin-bottom: 4px; }
-    strong { font-weight: bold; }
-
-    .info-box {
-      background: #f7f7f7;
-      border: 1px solid #ddd;
+    /* ── CALLOUTS ── */
+    .callout {
       border-radius: 8px;
-      padding: 16px 20px;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 14.5px;
+    }
+    .callout-info  { background: var(--accent-light); border-left: 4px solid var(--accent); color: #1e3a5f; }
+    .callout-warn  { background: var(--yellow-light); border-left: 4px solid var(--yellow); color: #713f12; }
+
+    /* ── EXAMPLE ── */
+    .example {
+      background: var(--gray-100);
+      border: 1.5px solid var(--gray-200);
+      border-left: 4px solid var(--black);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
       margin: 16px 0;
     }
-    .info-box-title { font-size: 13px; font-weight: bold; margin-bottom: 6px; }
-
-    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
-    th { background: #111; color: #fff; font-weight: bold; padding: 10px 12px; text-align: left; }
-    td { padding: 10px 12px; border-bottom: 1px solid #e5e5e5; vertical-align: top; }
-    tr:last-child td { border-bottom: none; }
-    tr:nth-child(even) td { background: #fafafa; }
-
-    .example {
-      border-left: 3px solid #aaa;
-      padding: 12px 16px;
-      margin: 12px 0;
-      background: #f9f9f9;
-      border-radius: 0 6px 6px 0;
-    }
     .example-label {
-      font-size: 11px;
-      font-weight: bold;
-      letter-spacing: 0.08em;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      color: #888;
-      margin-bottom: 6px;
+      color: var(--gray-400);
+      margin-bottom: 8px;
     }
 
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
-    .col-box { border: 1px solid #ddd; border-radius: 8px; padding: 16px; }
-    .col-box h4 { margin-top: 0; padding-bottom: 8px; border-bottom: 1px solid #e5e5e5; }
+    /* ── TABLE ── */
+    table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14.5px; border: 1.5px solid var(--gray-200); border-radius: 8px; overflow: hidden; }
+    th { background: var(--black); color: var(--white); text-align: left; padding: 11px 14px; font-size: 13px; font-weight: 500; letter-spacing: 0.3px; }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--gray-200); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: var(--gray-100); }
 
-    .checklist { border: 1px solid #ddd; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
-    .checklist h3 { margin-top: 0; }
-    .checklist ul { list-style: none; padding-left: 0; }
-    .checklist li { padding-left: 26px; position: relative; }
-    .checklist li:before { content: "☐"; position: absolute; left: 0; font-size: 15px; color: #999; }
+    /* ── TWO COL ── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 18px 0; }
+    .col-box { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 8px; padding: 18px; }
+    .col-box h4 { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--gray-200); }
+    .col-box ul { margin-left: 16px; }
+    .col-box li { font-size: 14px; }
 
-    .color-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 16px 0; }
-    .color-swatch { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; }
-    .color-display { height: 72px; }
-    .color-info { padding: 10px 12px; background: #fff; }
-    .color-name { font-size: 13px; font-weight: bold; margin-bottom: 2px; }
-    .color-meaning { font-size: 12px; color: #666; }
+    /* ── BADGE ── */
+    .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 99px; }
+    .badge-graded { background: var(--black); color: var(--white); }
 
-    @media (max-width: 700px) {
-      .sidebar { width: 100%; height: auto; position: relative; flex-direction: row; flex-wrap: wrap; padding: 12px; border-right: none; border-bottom: 1px solid #ddd; }
-      .sidebar-title { display: none; }
-      #app { flex-direction: column; }
-      .content { margin-left: 0; padding: 24px 20px; }
-      .two-col { grid-template-columns: 1fr; }
+    /* ── DAY GRID ── */
+    .day-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+    .day-card { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 10px; overflow: hidden; }
+    .day-header { background: var(--black); color: var(--white); padding: 12px 18px; display: flex; align-items: baseline; gap: 10px; }
+    .day-label { font-family: 'DM Serif Display', serif; font-size: 20px; }
+    .day-time { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gray-400); }
+    .day-body { padding: 16px 18px; }
+    .day-body ol { margin-left: 18px; }
+    .day-body li { font-size: 14px; margin-bottom: 7px; }
+
+    /* ── STEP LIST ── */
+    .step-list { counter-reset: steps; list-style: none; margin: 0 0 14px 0; }
+    .step-list li {
+      counter-increment: steps;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 15px;
     }
+    .step-list li::before {
+      content: counter(steps);
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── FILENAME ── */
+    .filename {
+      font-family: 'DM Mono', monospace;
+      background: var(--gray-100);
+      border: 1.5px solid var(--gray-200);
+      border-radius: 6px;
+      padding: 9px 14px;
+      font-size: 13.5px;
+      margin: 6px 0;
+      display: block;
+    }
+
+    /* ── COLOR SWATCHES ── */
+    .swatch-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
+    .swatch { display: flex; align-items: center; gap: 8px; font-size: 13.5px; }
+    .swatch-dot { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(0,0,0,0.12); flex-shrink: 0; }
+
+    /* ── INTERACTIVE CHECKLIST ── */
+    .checklist-container {
+      background: var(--white);
+      border: 2px solid var(--black);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 32px 0;
+    }
+    .checklist-header {
+      background: var(--black);
+      color: var(--white);
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .checklist-title { font-family: 'DM Serif Display', serif; font-size: 20px; }
+    .checklist-subtitle { font-size: 12.5px; color: var(--gray-400); margin-top: 2px; }
+    .checklist-counter {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      color: var(--gray-400);
+      transition: color 0.3s;
+    }
+    .checklist-counter.done { color: #4ade80; }
+    .checklist-progress-bar { height: 4px; background: #2a2a2a; }
+    .checklist-progress-fill { height: 100%; background: #4ade80; width: 0%; transition: width 0.35s ease; }
+    .checklist-items { padding: 6px 0; }
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 11px 22px;
+      border-bottom: 1px solid var(--gray-100);
+      cursor: pointer;
+      transition: background 0.1s;
+      user-select: none;
+    }
+    .checklist-item:last-child { border-bottom: none; }
+    .checklist-item:hover { background: var(--gray-100); }
+    .checklist-item.checked { background: var(--green-light); }
+    .checklist-box {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--gray-400);
+      border-radius: 4px;
+      margin-top: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .checklist-item.checked .checklist-box { background: var(--green); border-color: var(--green); }
+    .checklist-box svg { display: none; width: 12px; height: 12px; }
+    .checklist-item.checked .checklist-box svg { display: block; }
+    .checklist-text { font-size: 14.5px; line-height: 1.5; color: var(--black); transition: color 0.15s; }
+    .checklist-item.checked .checklist-text { color: var(--gray-600); text-decoration: line-through; }
+    .checklist-footer { padding: 12px 22px 16px; display: flex; align-items: center; justify-content: space-between; }
+    .checklist-reset {
+      padding: 7px 14px;
+      background: none;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12.5px;
+      color: var(--gray-600);
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .checklist-reset:hover { border-color: var(--black); color: var(--black); }
+    .checklist-hint { font-size: 12px; color: var(--gray-400); font-style: italic; }
+    .complete-banner {
+      display: none;
+      background: var(--green);
+      color: var(--white);
+      text-align: center;
+      padding: 11px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .complete-banner.visible { display: block; }
   </style>
 </head>
 <body>
-<div id="app">
 
-  <div class="sidebar">
-    <div class="sidebar-title">Sections</div>
-    <button class="nav-btn active" onclick="showPage('overview', this)">Overview &amp; Submission</button>
-    <button class="nav-btn" onclick="showPage('proposal', this)">Proposal</button>
-    <button class="nav-btn" onclick="showPage('brandkit', this)">Brand Kit</button>
-    <button class="nav-btn" onclick="showPage('flyer', this)">Interest Meeting Flyer</button>
-  </div>
+  <nav class="nav">
+    <span class="nav-brand">Club Assignment Guide</span>
+    <ul class="nav-tabs">
+      <li><a href="#overview" class="active">Overview</a></li>
+      <li><a href="#proposal">Proposal</a></li>
+      <li><a href="#flyer">Flyer</a></li>
+    </ul>
+  </nav>
 
-  <div class="content">
+  <!-- ═══════ OVERVIEW ═══════ -->
+  <section id="overview" class="page">
+    <p class="page-eyebrow">Getting Started</p>
+    <h1 class="page-title">Club Proposal<br>&amp; Flyer Assignment</h1>
 
-    <!-- OVERVIEW -->
-    <div id="page-overview" class="page active">
-      <h1>Overview &amp; Submission</h1>
+    <div class="callout callout-info">
+      <strong>Your Goal:</strong> Design a new school club from scratch. You'll write a formal proposal to administration and create a promotional flyer for your club's interest meeting.
+    </div>
 
-      <div class="info-box">
-        <div class="info-box-title">Your mission</div>
-        <p style="margin:0">Create a complete brand identity and proposal for a new school club — a professional proposal, a cohesive brand kit, and a compelling promotional flyer.</p>
+    <h2>Two Graded Deliverables</h2>
+
+    <table>
+      <tr><th>Deliverable</th><th>Description</th><th>Graded?</th></tr>
+      <tr>
+        <td><strong>Proposal PDF</strong></td>
+        <td>One-page, black &amp; white document in MLA format</td>
+        <td><span class="badge badge-graded">Graded</span></td>
+      </tr>
+      <tr>
+        <td><strong>Flyer PDF</strong></td>
+        <td>Portrait orientation promotional flyer designed in Canva</td>
+        <td><span class="badge badge-graded">Graded</span></td>
+      </tr>
+    </table>
+
+    <h2>Assignment Schedule</h2>
+
+    <div class="day-grid">
+      <div class="day-card">
+        <div class="day-header">
+          <span class="day-label">Day 1</span>
+          <span class="day-time">75 minutes</span>
+        </div>
+        <div class="day-body">
+          <ol>
+            <li>Brainstorm your club concept (10–15 min)</li>
+            <li>Draft your proposal in Google Docs (25–30 min)</li>
+            <li>Plan your flyer design concept (10 min)</li>
+            <li>Begin flyer design in Canva (20–25 min)</li>
+          </ol>
+        </div>
       </div>
-
-      <h2>Assignment structure</h2>
-      <h3>Day 1 — 75 minutes</h3>
-      <ol>
-        <li>Brainstorm your club concept (10–15 min)</li>
-        <li>Draft your proposal document (25–30 min)</li>
-        <li>Brainstorm brand identity (10 min)</li>
-        <li>Build brand kit in Canva using the Brand Kit tool (20–25 min)</li>
-      </ol>
-      <h3>Day 2 — 75 minutes</h3>
-      <ol>
-        <li>Design your interest meeting flyer (60 min)</li>
-        <li>Export all three deliverables as PDFs (10 min)</li>
-        <li>Submit to Google Classroom (5 min)</li>
-      </ol>
-
-      <h2>Three deliverables</h2>
-      <table>
-        <tr><th>Deliverable</th><th>Description</th><th>Graded?</th></tr>
-        <tr><td><strong>Brand Kit PDF</strong></td><td>Color palette and font choices (reference only)</td><td>No</td></tr>
-        <tr><td><strong>Proposal PDF</strong></td><td>One-page black &amp; white document in MLA format</td><td><strong>Yes</strong></td></tr>
-        <tr><td><strong>Flyer PDF</strong></td><td>Portrait orientation promotional material</td><td><strong>Yes</strong></td></tr>
-      </table>
-
-      <h2>Grading system</h2>
-      <p>This assignment uses <strong>binary grading</strong>: Acceptable or Unacceptable. Your work either meets all required criteria or it doesn't. There are no partial points. See the checklists on each page.</p>
-
-      <h2>File naming convention</h2>
-      <div class="info-box">
-        <div class="info-box-title">Required format: [lastName firstName] Document Name.pdf</div>
-        <ul style="margin:0">
-          <li>Smith John Brand Kit.pdf</li>
-          <li>Smith John Proposal.pdf</li>
-          <li>Smith John Flyer.pdf</li>
-        </ul>
-      </div>
-
-      <h2>Submission steps</h2>
-      <h3>Export to PDF in Canva</h3>
-      <ol>
-        <li>Click "Share" in the top right corner</li>
-        <li>Select "Download"</li>
-        <li>Choose "PDF Standard" from the file type dropdown</li>
-        <li>Click "Download"</li>
-        <li>Rename the file according to the naming convention above</li>
-      </ol>
-      <h3>Google Classroom submission</h3>
-      <ol>
-        <li>Go to Google Classroom and find the assignment</li>
-        <li>Click "Add or create" then "File"</li>
-        <li>Upload all three PDF files</li>
-        <li>Verify all three files are attached</li>
-        <li>Click "Turn in" and confirm</li>
-      </ol>
-      <div class="info-box">
-        <div class="info-box-title">Before you submit</div>
-        <p style="margin:0">Open each PDF to verify it looks correct and is the right file. Once submitted, you cannot edit unless you "unsubmit."</p>
+      <div class="day-card">
+        <div class="day-header">
+          <span class="day-label">Day 2</span>
+          <span class="day-time">75 minutes</span>
+        </div>
+        <div class="day-body">
+          <ol>
+            <li>Finish and polish your flyer (60 min)</li>
+            <li>Export both deliverables as PDFs (10 min)</li>
+            <li>Submit to Google Classroom (5 min)</li>
+          </ol>
+        </div>
       </div>
     </div>
 
-    <!-- PROPOSAL -->
-    <div id="page-proposal" class="page">
-      <h1>Proposal Guidelines</h1>
+    <h2>File Naming Convention</h2>
 
-      <div class="info-box">
-        <div class="info-box-title">Critical requirements</div>
-        <ul style="margin:0">
-          <li>Maximum 1 page</li>
-          <li>Black and white only (no colors or images)</li>
-          <li>MLA format required</li>
-          <li>Audience: School administrators (Mr. Dillard)</li>
-        </ul>
-      </div>
+    <div class="card">
+      <div class="card-title">Required Format — [lastName firstName] Document Name.pdf</div>
+      <code class="filename">Smith John Proposal.pdf</code>
+      <code class="filename">Smith John Flyer.pdf</code>
+    </div>
 
-      <h2>MLA formatting</h2>
-      <div class="example">
-        <div class="example-label">Header — top left corner</div>
-        <p style="margin:0">Your Name<br>Mr. Dillard<br>3A Marketing<br>30 March 2026</p>
-      </div>
-      <table>
-        <tr><th>Element</th><th>Requirement</th></tr>
-        <tr><td>Font</td><td>Times New Roman, 12pt</td></tr>
-        <tr><td>Spacing</td><td>Double-spaced throughout</td></tr>
-        <tr><td>Margins</td><td>1 inch on all sides</td></tr>
-        <tr><td>Title</td><td>Centered, same font and size as body (not bold or underlined)</td></tr>
-        <tr><td>Page number</td><td>Top right corner with your last name — e.g., "Smith 1"</td></tr>
-      </table>
+    <h2>Grading System</h2>
+    <p>This assignment uses <strong>binary grading: Acceptable or Unacceptable.</strong> Your work either meets every required criterion or it does not — no partial points. Use the interactive checklists on the Proposal and Flyer pages to verify your work before submitting.</p>
 
-      <h2>Required sections</h2>
+    <h2>Submission Steps</h2>
+    <ol class="step-list">
+      <li>Go to Google Classroom and open the assignment.</li>
+      <li>Click <strong>Add or Create → File</strong>.</li>
+      <li>Upload both PDF files (Proposal + Flyer).</li>
+      <li>Verify both files are attached and correctly named.</li>
+      <li>Click <strong>Turn In</strong> and confirm.</li>
+    </ol>
 
-      <h3>1. Purpose statement</h3>
-      <p>A clear, concise statement (2–4 sentences) explaining what your club does and why it should exist.</p>
+    <div class="callout callout-warn">
+      <strong>Before you submit:</strong> Open each PDF and confirm it looks correct. Once submitted, you cannot edit unless you click "Unsubmit."
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══════ PROPOSAL ═══════ -->
+  <section id="proposal" class="page">
+    <p class="page-eyebrow">Deliverable 1</p>
+    <h1 class="page-title">Proposal Guidelines</h1>
+
+    <div class="callout callout-info">
+      <strong>Audience:</strong> You are writing to Mr. Dillard to convince school administration your club should be approved. Use professional, formal language throughout.
+    </div>
+
+    <div class="card">
+      <div class="card-title">Critical Requirements</div>
       <ul>
-        <li>What is the club's main focus or activity?</li>
-        <li>What need or interest does it serve?</li>
-        <li>What value does it provide to members?</li>
+        <li>Maximum 1 page — do not go over</li>
+        <li>Black and white only — no colors or images</li>
+        <li>MLA format required (see below)</li>
+        <li>Written in Google Docs, exported as PDF</li>
       </ul>
-      <div class="example">
-        <div class="example-label">Example</div>
-        <p style="margin:0">The Creative Writing Club provides students with a supportive community to develop their writing skills across multiple genres. Members will workshop their creative pieces, participate in writing challenges, and prepare submissions for literary competitions. This club addresses the need for creative outlets and helps students build portfolios for college applications.</p>
-      </div>
+    </div>
 
-      <h3>2. Meeting schedule &amp; target audience</h3>
-      <ul>
-        <li>Meeting frequency: How often will the club meet?</li>
-        <li>Meeting duration: How long are meetings?</li>
-        <li>Proposed day/time: When would meetings ideally occur?</li>
-        <li>Target audience: Who is this club for?</li>
-      </ul>
-      <div class="example">
-        <div class="example-label">Example</div>
-        <p style="margin:0">The Creative Writing Club will meet every Tuesday during lunch (30 minutes) in Room 204. Meetings are open to students in grades 9–12 of all skill levels, from beginners exploring writing for the first time to advanced writers preparing for college creative writing programs.</p>
-      </div>
+    <h2>MLA Formatting</h2>
 
-      <h3>3. Required resources &amp; leadership structure</h3>
-      <ul>
-        <li>Space needs: What type of room or space do you need?</li>
-        <li>Equipment/supplies: List specific items needed (be realistic)</li>
-        <li>Budget: Approximate costs if applicable</li>
-        <li>Leadership roles: What positions will the club have?</li>
-        <li>Faculty advisor: Have you identified one, or are you seeking one?</li>
-      </ul>
-      <div class="example">
-        <div class="example-label">Example</div>
-        <p style="margin:0">The club requires a classroom with moveable seating to facilitate small group workshops. Initial supplies include printer paper and writing prompts (estimated $30/semester). Leadership will consist of a President, Vice President, and Workshop Coordinator elected by members. Ms. Johnson has expressed interest in serving as faculty advisor.</p>
-      </div>
+    <div class="example">
+      <div class="example-label">Header — top-left corner</div>
+      <p style="font-family:'DM Mono',monospace;font-size:13px;line-height:2;">
+        Your Name<br>
+        Mr. Dillard<br>
+        3A Marketing<br>
+        30 March 2026
+      </p>
+    </div>
 
-      <h2>Writing tips</h2>
-      <ul>
-        <li><strong>Professional:</strong> Use formal language, avoid slang</li>
-        <li><strong>Specific:</strong> Provide concrete details, not vague statements</li>
-        <li><strong>Realistic:</strong> Show you've thought through logistics</li>
-        <li><strong>Concise:</strong> Every sentence should add value</li>
-        <li><strong>Action-oriented:</strong> Focus on what the club will DO</li>
-      </ul>
+    <table>
+      <tr><th>Element</th><th>Requirement</th></tr>
+      <tr><td>Font</td><td>Times New Roman, 12pt</td></tr>
+      <tr><td>Spacing</td><td>Double-spaced throughout</td></tr>
+      <tr><td>Margins</td><td>1 inch on all sides</td></tr>
+      <tr><td>Title</td><td>Centered, same font and size as body — not bold or underlined</td></tr>
+      <tr><td>Page Number</td><td>Top-right corner with your last name (e.g., "Smith 1")</td></tr>
+    </table>
 
-      <div class="checklist">
-        <h3>Proposal checklist — all must be met for "Acceptable"</h3>
+    <h2>Required Sections</h2>
+
+    <h3>1. Purpose Statement</h3>
+    <p>2–4 sentences explaining what your club does and why it should exist. Answer: What is the focus? What need does it serve? What value does it give members?</p>
+    <div class="example">
+      <div class="example-label">Example</div>
+      <p>The Creative Writing Club provides students with a supportive community to develop their writing skills across multiple genres. Members will workshop their creative pieces, participate in writing challenges, and prepare submissions for literary competitions. This club addresses the need for creative outlets and helps students build portfolios for college applications.</p>
+    </div>
+
+    <h3>2. Meeting Schedule &amp; Target Audience</h3>
+    <p>Include: meeting frequency, duration, proposed day/time, and who the club is for.</p>
+    <div class="example">
+      <div class="example-label">Example</div>
+      <p>The Creative Writing Club will meet every Tuesday during lunch (30 minutes) in Room 204. Meetings are open to students in grades 9–12 of all skill levels, from beginners to advanced writers preparing for college creative writing programs.</p>
+    </div>
+
+    <h3>3. Required Resources &amp; Leadership Structure</h3>
+    <p>Include: space needs, equipment/budget, leadership roles, and faculty advisor status.</p>
+    <div class="example">
+      <div class="example-label">Example</div>
+      <p>The club requires a classroom with moveable seating to facilitate small group workshops. Initial supplies include printer paper and writing prompts (estimated $30/semester). Leadership will consist of a President, Vice President, and Workshop Coordinator elected by members. Ms. Johnson has expressed interest in serving as faculty advisor.</p>
+    </div>
+
+    <h2>Writing Tips</h2>
+    <div class="two-col">
+      <div class="col-box">
+        <h4>Do</h4>
         <ul>
-          <li>Maximum 1 page length</li>
-          <li>Black and white only (no colors or images)</li>
-          <li>Proper MLA format (header with name, recipient, class, date)</li>
-          <li>Times New Roman, 12pt font</li>
-          <li>Double-spaced throughout</li>
-          <li>1-inch margins on all sides</li>
-          <li>Page number with last name in top right corner</li>
-          <li>Clear purpose statement (2–4 sentences)</li>
-          <li>Meeting schedule and target audience section included</li>
-          <li>Required resources and leadership structure section included</li>
-          <li>Professional language and tone throughout</li>
-          <li>No spelling or major grammatical errors</li>
-          <li>Properly saved and named: [lastName firstName] Proposal.pdf</li>
+          <li>Use formal, professional language</li>
+          <li>Be specific — give real details</li>
+          <li>Show you've thought through logistics</li>
+          <li>Keep every sentence purposeful</li>
+          <li>Focus on what the club will <em>do</em></li>
         </ul>
       </div>
-    </div>
-
-    <!-- BRAND KIT -->
-    <div id="page-brandkit" class="page">
-      <h1>Brand Kit: Colors &amp; Typography</h1>
-
-      <h2>Color psychology</h2>
-      <p>Colors communicate emotions before words do. Think strategically about what feelings you want your club to convey.</p>
-
-      <div class="color-grid">
-        <div class="color-swatch"><div class="color-display" style="background:#FF6B6B"></div><div class="color-info"><div class="color-name">Red</div><div class="color-meaning">Energy, passion, urgency, excitement</div></div></div>
-        <div class="color-swatch"><div class="color-display" style="background:#4ECDC4"></div><div class="color-info"><div class="color-name">Teal / cyan</div><div class="color-meaning">Calm, trust, innovation, clarity</div></div></div>
-        <div class="color-swatch"><div class="color-display" style="background:#FFD93D"></div><div class="color-info"><div class="color-name">Yellow</div><div class="color-meaning">Optimism, creativity, warmth, attention</div></div></div>
-        <div class="color-swatch"><div class="color-display" style="background:#95E1D3"></div><div class="color-info"><div class="color-name">Green</div><div class="color-meaning">Growth, nature, balance, health</div></div></div>
-        <div class="color-swatch"><div class="color-display" style="background:#6C5CE7"></div><div class="color-info"><div class="color-name">Purple</div><div class="color-meaning">Creativity, luxury, imagination, wisdom</div></div></div>
-        <div class="color-swatch"><div class="color-display" style="background:#FF8B94"></div><div class="color-info"><div class="color-name">Pink</div><div class="color-meaning">Compassion, playfulness, youth, care</div></div></div>
-      </div>
-
-      <h2>Color palette requirements</h2>
-      <ul>
-        <li><strong>2–3 primary colors</strong> — Your main brand colors that appear most frequently</li>
-        <li><strong>2–3 accent colors</strong> — Supporting colors used sparingly for emphasis</li>
-      </ul>
-      <div class="info-box">
-        <div class="info-box-title">Critical rule</div>
-        <p style="margin:0">Always ensure high contrast between text and background. Dark text on light backgrounds, or light text on dark backgrounds. Never light on light or dark on dark.</p>
-      </div>
-
-      <h2>Color harmony strategies</h2>
-      <table>
-        <tr><th>Strategy</th><th>Description</th><th>Example</th></tr>
-        <tr><td><strong>Complementary</strong></td><td>Colors opposite on the color wheel</td><td>Blue + Orange, Purple + Yellow</td></tr>
-        <tr><td><strong>Analogous</strong></td><td>Colors next to each other on the wheel</td><td>Blue + Blue-Green + Green</td></tr>
-        <tr><td><strong>Monochromatic</strong></td><td>Different shades of the same color</td><td>Light Pink + Rose + Deep Maroon</td></tr>
-        <tr><td><strong>Triadic</strong></td><td>Three colors evenly spaced on the wheel</td><td>Red + Yellow + Blue</td></tr>
-      </table>
-
-      <h2>Font categories</h2>
-      <table>
-        <tr><th>Category</th><th>Characteristics</th><th>Best for</th></tr>
-        <tr><td><strong>Serif</strong></td><td>Decorative strokes at letter ends</td><td>Traditional, formal, trustworthy contexts</td></tr>
-        <tr><td><strong>Sans-serif</strong></td><td>Clean lines, no decorative strokes</td><td>Modern, digital, body text</td></tr>
-        <tr><td><strong>Display / decorative</strong></td><td>Unique, stylized, eye-catching</td><td>Titles and headlines ONLY</td></tr>
-        <tr><td><strong>Script / handwritten</strong></td><td>Mimics handwriting or calligraphy</td><td>Accents and special emphasis</td></tr>
-      </table>
-
-      <h2>Font requirements</h2>
-      <ul>
-        <li><strong>1 heading/title font</strong> — Bold and attention-grabbing</li>
-        <li><strong>1 body font</strong> — Highly readable for paragraphs</li>
-        <li><strong>1 fun/alternative font</strong> — For special accents or creative elements</li>
-      </ul>
-      <div class="info-box">
-        <div class="info-box-title">Pro tip</div>
-        <p style="margin:0">Great branding uses contrast. If your heading font is bold and geometric, choose a softer body font. If your heading is elegant and serif, pick a clean sans-serif for body text.</p>
-      </div>
-
-      <h3>Proven font combinations</h3>
-      <div class="example"><div class="example-label">Modern &amp; professional</div><p style="margin:0"><strong>Heading:</strong> Montserrat Bold &nbsp; <strong>Body:</strong> Open Sans &nbsp; <strong>Accent:</strong> Permanent Marker</p></div>
-      <div class="example"><div class="example-label">Classic &amp; trustworthy</div><p style="margin:0"><strong>Heading:</strong> Playfair Display &nbsp; <strong>Body:</strong> Lato &nbsp; <strong>Accent:</strong> Great Vibes</p></div>
-      <div class="example"><div class="example-label">Bold &amp; energetic</div><p style="margin:0"><strong>Heading:</strong> Bebas Neue &nbsp; <strong>Body:</strong> Roboto &nbsp; <strong>Accent:</strong> Anton</p></div>
-
-      <div class="two-col">
-        <div class="col-box">
-          <h4>Do</h4>
-          <ul>
-            <li>Choose colors that reflect your club's purpose</li>
-            <li>Test colors together before finalizing</li>
-            <li>Use primary colors most, accents sparingly</li>
-            <li>Pair fonts with contrasting styles</li>
-            <li>Use body font for ~80% of text</li>
-            <li>Stick to your 3 chosen fonts consistently</li>
-          </ul>
-        </div>
-        <div class="col-box">
-          <h4>Don't</h4>
-          <ul>
-            <li>Use more than 6 total colors</li>
-            <li>Use neon colors as primary brand colors</li>
-            <li>Make every color equally prominent</li>
-            <li>Use more than 3 fonts in your design</li>
-            <li>Pair two decorative fonts together</li>
-            <li>Use script fonts for body paragraphs</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- FLYER -->
-    <div id="page-flyer" class="page">
-      <h1>Interest Meeting Flyer</h1>
-
-      <div class="checklist">
-        <h3>All elements must be present</h3>
+      <div class="col-box">
+        <h4>Don't</h4>
         <ul>
-          <li>Brand fonts (heading, body, alternative) from your brand kit</li>
-          <li>Brand colors (primary and accent) from your brand kit</li>
-          <li>Club title/name — large and prominent</li>
-          <li>Purpose statement (value proposition)</li>
-          <li>Meeting date</li>
-          <li>Meeting time</li>
-          <li>Meeting location</li>
-          <li>Call to action (tells reader what to do next)</li>
-          <li>Creative eye-catching element that makes it unique</li>
-        </ul>
-      </div>
-
-      <h2>Advertising principles</h2>
-
-      <h3>1. Visual hierarchy</h3>
-      <p>Guide the viewer's eye through your design in order of importance:</p>
-      <ul>
-        <li><strong>Primary:</strong> Club name and eye-catching visual — largest, most prominent</li>
-        <li><strong>Secondary:</strong> Purpose statement and meeting date/time — medium size</li>
-        <li><strong>Tertiary:</strong> Additional details and call to action — smallest, but still readable</li>
-      </ul>
-
-      <h3>2. The 3-second rule</h3>
-      <p>A person should understand what your club is about within 3 seconds. Use large, clear headings and minimal text. If you need more than 15 words to explain your club, it's too complicated.</p>
-
-      <h3>3. White space is your friend</h3>
-      <p>Don't fill every inch of the page. Empty space makes your design look professional and makes important information stand out. Cramped designs look amateur and are hard to read.</p>
-
-      <h3>4. Contrast creates impact</h3>
-      <p>High contrast between elements — large vs. small, dark vs. light, bold vs. thin — creates visual interest and draws attention.</p>
-
-      <h3>5. Call to action (CTA)</h3>
-      <p>Tell people exactly what you want them to do. Examples:</p>
-      <ul>
-        <li>"Scan to sign up!"</li>
-        <li>"See you there!"</li>
-        <li>"Join us Monday!"</li>
-        <li>"Follow @clubinstagram for updates"</li>
-        <li>"Text 'CHESS' to 12345"</li>
-      </ul>
-
-      <h2>Creative eye-catching element strategies</h2>
-      <table>
-        <tr><th>Strategy</th><th>Description</th></tr>
-        <tr><td><strong>Unexpected layout</strong></td><td>Diagonal text, circular arrangements, asymmetrical design</td></tr>
-        <tr><td><strong>Bold graphic element</strong></td><td>Large icon, illustration, or photo that dominates</td></tr>
-        <tr><td><strong>Interactive element</strong></td><td>QR code, tear-off tabs, perforated RSVP</td></tr>
-        <tr><td><strong>Typography as art</strong></td><td>Creative letterforms, overlapping text, outlined letters</td></tr>
-        <tr><td><strong>Texture or pattern</strong></td><td>Unique background pattern that supports the theme</td></tr>
-        <tr><td><strong>Color block design</strong></td><td>Bold geometric color sections organizing information</td></tr>
-        <tr><td><strong>Minimalist approach</strong></td><td>Ultra-simple design that stands out by being different</td></tr>
-        <tr><td><strong>Humor or wordplay</strong></td><td>Clever headline or visual pun related to your club</td></tr>
-      </table>
-
-      <div class="info-box">
-        <div class="info-box-title">Important</div>
-        <p style="margin:0">Your creative element should enhance your message, not distract from it. Every design choice should serve your communication goal.</p>
-      </div>
-
-      <div class="two-col">
-        <div class="col-box">
-          <h4>Do</h4>
-          <ul>
-            <li>Make club name huge (readable from 10 feet away)</li>
-            <li>Use high-quality images (no pixelation)</li>
-            <li>Align elements to create clean edges</li>
-            <li>Leave generous margins (at least 0.5" on all sides)</li>
-            <li>Test print in black &amp; white to check contrast</li>
-            <li>Proofread everything multiple times</li>
-          </ul>
-        </div>
-        <div class="col-box">
-          <h4>Don't</h4>
-          <ul>
-            <li>Use more than 3 fonts</li>
-            <li>Write long paragraphs (use bullet points)</li>
-            <li>Center-align everything (boring!)</li>
-            <li>Use clipart or cheesy stock photos</li>
-            <li>Make text smaller than 10pt</li>
-            <li>Ignore your brand colors and fonts</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="checklist">
-        <h3>Flyer checklist — all must be met for "Acceptable"</h3>
-        <ul>
-          <li>Portrait orientation (8.5" x 11")</li>
-          <li>Uses all three brand fonts from brand kit</li>
-          <li>Uses brand colors from brand kit</li>
-          <li>Club title/name is prominent and readable</li>
-          <li>Purpose statement clearly stated</li>
-          <li>Meeting date included</li>
-          <li>Meeting time included</li>
-          <li>Meeting location included</li>
-          <li>Call to action present</li>
-          <li>Creative eye-catching element that makes it unique</li>
-          <li>Good visual hierarchy (clear order of importance)</li>
-          <li>Appropriate use of white space (not cramped)</li>
-          <li>High contrast and readability</li>
-          <li>Professional appearance (no pixelation or blurry elements)</li>
-          <li>No spelling or major design errors</li>
-          <li>Properly saved and named: [lastName firstName] Flyer.pdf</li>
+          <li>Use slang or casual language</li>
+          <li>Make vague, general statements</li>
+          <li>Go over one page</li>
+          <li>Add colors, images, or decorations</li>
+          <li>Leave spelling or grammar errors</li>
         </ul>
       </div>
     </div>
 
-  </div>
-</div>
+    <div class="checklist-container">
+      <div class="checklist-header">
+        <div>
+          <div class="checklist-title">Proposal Checklist</div>
+          <div class="checklist-subtitle">All criteria must be met for "Acceptable"</div>
+        </div>
+        <span class="checklist-counter" id="proposal-counter">0 / 13</span>
+      </div>
+      <div class="checklist-progress-bar">
+        <div class="checklist-progress-fill" id="proposal-progress"></div>
+      </div>
+      <div class="checklist-items" id="proposal-items"></div>
+      <div class="complete-banner" id="proposal-banner">All criteria met — your proposal is ready to submit!</div>
+      <div class="checklist-footer">
+        <button class="checklist-reset" onclick="resetChecklist('proposal')">Reset checklist</button>
+        <span class="checklist-hint">Click any item to check it off</span>
+      </div>
+    </div>
+  </section>
 
-<script>
-  function showPage(id, btn) {
-    document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
-    document.querySelectorAll('.nav-btn').forEach(function(b) { b.classList.remove('active'); });
-    document.getElementById('page-' + id).classList.add('active');
-    btn.classList.add('active');
-  }
-</script>
+  <hr class="section-divider">
+
+  <!-- ═══════ FLYER ═══════ -->
+  <section id="flyer" class="page">
+    <p class="page-eyebrow">Deliverable 2</p>
+    <h1 class="page-title">Flyer Design Guide</h1>
+
+    <div class="callout callout-info">
+      <strong>Tool:</strong> Design your flyer in Canva. Use portrait orientation (8.5" × 11"). Export as <strong>PDF Standard</strong> when finished.
+    </div>
+
+    <h2>Quick Design Reference</h2>
+
+    <div class="card">
+      <div class="card-title">Color — Pick 2–3 that match your club's identity</div>
+      <div class="swatch-row">
+        <div class="swatch"><div class="swatch-dot" style="background:#ef4444;"></div><span>Red — Energy, urgency</span></div>
+        <div class="swatch"><div class="swatch-dot" style="background:#3b82f6;"></div><span>Blue — Trust, calm</span></div>
+        <div class="swatch"><div class="swatch-dot" style="background:#eab308;"></div><span>Yellow — Optimism, creativity</span></div>
+        <div class="swatch"><div class="swatch-dot" style="background:#22c55e;"></div><span>Green — Growth, balance</span></div>
+        <div class="swatch"><div class="swatch-dot" style="background:#8b5cf6;"></div><span>Purple — Imagination, wisdom</span></div>
+        <div class="swatch"><div class="swatch-dot" style="background:#ec4899;"></div><span>Pink — Playfulness, care</span></div>
+      </div>
+      <p style="font-size:13.5px;color:var(--gray-600);margin-top:10px;margin-bottom:4px;">
+        <strong>Contrast rule:</strong> Dark text on light backgrounds, or light text on dark backgrounds. Never light-on-light or dark-on-dark.
+      </p>
+      <p style="font-size:13.5px;color:var(--gray-600);margin-bottom:0;">
+        <strong>Fonts:</strong> Use one bold heading font + one clean body font + one accent/fun font. Never exceed 3 fonts. Never pair two decorative fonts together.
+      </p>
+    </div>
+
+    <h2>Required Flyer Elements</h2>
+    <p>Every element below must appear on your flyer.</p>
+
+    <table>
+      <tr><th>Element</th><th>What It Means</th></tr>
+      <tr><td><strong>Club Name</strong></td><td>Large and prominent — readable from across the room</td></tr>
+      <tr><td><strong>Purpose Statement</strong></td><td>One sentence explaining what the club is about</td></tr>
+      <tr><td><strong>Meeting Date</strong></td><td>Specific date of the interest meeting</td></tr>
+      <tr><td><strong>Meeting Time</strong></td><td>Start time clearly stated</td></tr>
+      <tr><td><strong>Meeting Location</strong></td><td>Room number or building</td></tr>
+      <tr><td><strong>Call to Action (CTA)</strong></td><td>Tell people exactly what to do next</td></tr>
+      <tr><td><strong>Eye-Catching Element</strong></td><td>One creative thing that makes your flyer stand out</td></tr>
+    </table>
+
+    <h2>Advertising Principles</h2>
+
+    <h3>1. Visual Hierarchy</h3>
+    <p>Guide the viewer's eye in order of importance. Club name and main visual are largest. Meeting details are medium. Fine print and CTA are smallest — but still readable.</p>
+
+    <h3>2. The 3-Second Rule</h3>
+    <p>A person walking past your flyer should understand what it is in 3 seconds. If you need more than 15 words to explain your club, simplify it.</p>
+
+    <h3>3. White Space is Your Friend</h3>
+    <p>Don't fill every inch of the page. Empty space makes important info stand out and makes your design look professional. Cramped designs are hard to read.</p>
+
+    <h3>4. Call to Action Examples</h3>
+    <ul>
+      <li>"Scan to sign up!"</li>
+      <li>"See you there!"</li>
+      <li>"Join us Monday!"</li>
+      <li>"Follow @clubhandle for updates"</li>
+      <li>"Text JOIN to 12345"</li>
+    </ul>
+
+    <h3>5. Eye-Catching Element Ideas</h3>
+    <p>Your flyer needs one thing that makes it stand out from every other flyer on the board. Consider: diagonal or circular text layouts, a bold graphic that dominates the page, a QR code, creative typography used as art, a strong background texture or pattern, a color-block design, or a visual pun related to your club's theme.</p>
+
+    <div class="callout callout-warn">
+      <strong>Design rule:</strong> Every creative choice should serve your message, not distract from it. If it doesn't help someone understand your club faster, reconsider it.
+    </div>
+
+    <h2>Common Mistakes</h2>
+    <div class="two-col">
+      <div class="col-box">
+        <h4>Do</h4>
+        <ul>
+          <li>Make club name huge — readable from 10 feet away</li>
+          <li>Use high-quality images — no pixelation</li>
+          <li>Align elements to create clean edges</li>
+          <li>Leave generous margins (0.5" min on all sides)</li>
+          <li>Proofread everything at least twice</li>
+        </ul>
+      </div>
+      <div class="col-box">
+        <h4>Don't</h4>
+        <ul>
+          <li>Use more than 3 fonts</li>
+          <li>Write long paragraphs — use bullets or short phrases</li>
+          <li>Center-align every single element</li>
+          <li>Use clipart or blurry stock photos</li>
+          <li>Make any text smaller than 10pt</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Exporting from Canva</h2>
+    <ol class="step-list">
+      <li>Click <strong>Share</strong> in the top-right corner of Canva.</li>
+      <li>Select <strong>Download</strong>.</li>
+      <li>Choose <strong>PDF Standard</strong> from the file type dropdown.</li>
+      <li>Click <strong>Download</strong>.</li>
+      <li>Rename the file using the correct format (e.g., <code style="font-family:'DM Mono',monospace;font-size:13px;">Smith John Flyer.pdf</code>).</li>
+    </ol>
+
+    <div class="checklist-container">
+      <div class="checklist-header">
+        <div>
+          <div class="checklist-title">Flyer Checklist</div>
+          <div class="checklist-subtitle">All criteria must be met for "Acceptable"</div>
+        </div>
+        <span class="checklist-counter" id="flyer-counter">0 / 16</span>
+      </div>
+      <div class="checklist-progress-bar">
+        <div class="checklist-progress-fill" id="flyer-progress"></div>
+      </div>
+      <div class="checklist-items" id="flyer-items"></div>
+      <div class="complete-banner" id="flyer-banner">All criteria met — your flyer is ready to submit!</div>
+      <div class="checklist-footer">
+        <button class="checklist-reset" onclick="resetChecklist('flyer')">Reset checklist</button>
+        <span class="checklist-hint">Click any item to check it off</span>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const checklists = {
+      proposal: {
+        items: [
+          "Maximum 1 page — does not go over",
+          "Black and white only — no colors or images",
+          "Proper MLA header: Name / Mr. Dillard / 3A Marketing / Date (top-left)",
+          "Times New Roman, 12pt font throughout",
+          "Double-spaced throughout",
+          "1-inch margins on all sides",
+          "Page number with last name in top-right corner (e.g., Smith 1)",
+          "Title is centered, same font and size as body — not bold or underlined",
+          "Clear purpose statement included (2–4 sentences)",
+          "Meeting schedule and target audience section included",
+          "Required resources and leadership structure section included",
+          "Professional language and tone — no slang",
+          "No spelling or major grammatical errors",
+        ]
+      },
+      flyer: {
+        items: [
+          "Portrait orientation (8.5\" × 11\") in Canva",
+          "Exported as PDF Standard from Canva",
+          "Maximum 3 fonts used total",
+          "Fonts: one bold heading + one clean body + one accent/fun font",
+          "2–3 colors used with good contrast throughout",
+          "Club name is large and readable from across the room",
+          "Purpose statement clearly stated (one sentence)",
+          "Meeting date included",
+          "Meeting time included",
+          "Meeting location included",
+          "Call to action is present",
+          "One creative eye-catching element that makes it stand out",
+          "Clear visual hierarchy — most important info is largest",
+          "Appropriate white space — design is not cramped",
+          "All images are high quality — no pixelation or blurring",
+          "No spelling or major design errors",
+        ]
+      }
+    };
+
+    // Track state outside of the data object
+    const state = { proposal: [], flyer: [] };
+
+    function renderChecklist(id) {
+      const list = checklists[id];
+      state[id] = new Array(list.items.length).fill(false);
+      const container = document.getElementById(`${id}-items`);
+      container.innerHTML = '';
+      list.items.forEach((text, i) => {
+        const item = document.createElement('div');
+        item.className = 'checklist-item';
+        item.innerHTML = `
+          <div class="checklist-box">
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.5 6L4.5 9L10.5 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="checklist-text">${text}</span>
+        `;
+        item.addEventListener('click', () => toggleItem(id, i, item));
+        container.appendChild(item);
+      });
+      updateCounter(id);
+    }
+
+    function toggleItem(id, index, el) {
+      state[id][index] = !state[id][index];
+      el.classList.toggle('checked', state[id][index]);
+      updateCounter(id);
+    }
+
+    function updateCounter(id) {
+      const checked = state[id].filter(Boolean).length;
+      const total = checklists[id].items.length;
+      const pct = Math.round((checked / total) * 100);
+      document.getElementById(`${id}-counter`).textContent = `${checked} / ${total}`;
+      document.getElementById(`${id}-counter`).classList.toggle('done', checked === total);
+      document.getElementById(`${id}-progress`).style.width = `${pct}%`;
+      document.getElementById(`${id}-banner`).classList.toggle('visible', checked === total);
+    }
+
+    function resetChecklist(id) {
+      state[id] = new Array(checklists[id].items.length).fill(false);
+      document.getElementById(`${id}-items`).querySelectorAll('.checklist-item').forEach(el => el.classList.remove('checked'));
+      updateCounter(id);
+    }
+
+    renderChecklist('proposal');
+    renderChecklist('flyer');
+
+    // Active nav on scroll
+    const sections = ['overview', 'proposal', 'flyer'];
+    const links = {};
+    sections.forEach(id => { links[id] = document.querySelector(`.nav-tabs a[href="#${id}"]`); });
+
+    function updateNav() {
+      let active = sections[0];
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 80) active = id;
+      });
+      Object.values(links).forEach(a => a.classList.remove('active'));
+      if (links[active]) links[active].classList.add('active');
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+  </script>
 </body>
 </html>
